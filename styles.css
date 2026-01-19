@@ -1,0 +1,132 @@
+body {
+    font-family: Lexend, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    max-width: 50em;
+    padding-top: 110px;
+    padding: 110px 20px 40px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.logo-container {
+    position: fixed; /* stays on screen while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%; /* full width bar */
+    background-color: #ffffff; /* white bar background */
+    text-align: center; /* center the logo */
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* subtle shadow */
+    z-index: 1000; /* stay above everything */
+}
+
+.logo {
+    max-width: 65px;
+    height: auto;
+    margin-top: 5px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+    .logo:hover {
+        transform: scale(1.1); /* Makes it 10% bigger */
+        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3)); /* Adds the shadow glow */
+    }
+
+/* The container for the bubble */
+/* --- BUBBLE CONTAINER --- */
+details.bubble {
+    background-color: transparent;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #000000;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+    details.bubble:hover {
+        background-color: rgba(0,0,0,0.03);
+        transform: translateY(-2px);
+    }
+
+/* --- SUMMARY (The Header) --- */
+summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between; /* Pushes text to left, '+' to right */
+    align-items: center; /* Vertically aligns the + with the text */
+}
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+/* This wrapper stacks the Meta info on top of the Title */
+.summary-text-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack them vertically */
+    gap: 5px; /* Small space between date and title */
+}
+
+/* Style for the Date/Author */
+.bubble-meta {
+    font-size: 0.75em; /* Small text */
+    letter-spacing: 1px;
+    opacity: 0.6; /* Greyed out slightly */
+    font-weight: 500;
+}
+
+/* Style for the Main Title */
+.bubble-title {
+    font-weight: 600;
+    font-size: 1.2em;
+    line-height: 1.2;
+}
+
+/* --- THE + ICON --- */
+summary::after {
+    content: '+';
+    font-size: 2em; /* Made it slightly bigger */
+    font-weight: 300;
+    color: #000000;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
+
+details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+/* --- CONTENT --- */
+.bubble-content {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #000000;
+    line-height: 1.5;
+    animation: fadeIn 0.4s ease;
+}
+
+    .bubble-content h3 {
+        font-weight: 600;
+        font-size: 1.2em;
+        line-height: 1.2;
+    }
+
+h2 {
+    margin-bottom: 20px;
+    color: #222;
+    line-height: 1.3;
+}
+
+p {
+    line-height: 1.6; /* Increases space between lines */
+    color: #444;
+    margin-bottom: 25px; /* Adds space between paragraphs */
+    font-weight: 300; /* Makes Lexend look cleaner */
+}
